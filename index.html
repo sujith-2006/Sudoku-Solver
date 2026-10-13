@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="An explainable Sudoku solver that demonstrates constraint satisfaction, heuristic search, and backtracking."
+    />
+    <title>Sudoku Solver Lab</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div class="brand-lockup">
+          <div class="brand-mark" aria-hidden="true">9×9</div>
+          <div>
+            <p class="eyebrow">AISC project · CSE3121</p>
+            <h1>Sudoku Solver Lab</h1>
+          </div>
+        </div>
+        <div class="status-chip"><span class="status-dot"></span>AI visualizer</div>
+      </header>
+
+      <section class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow accent">Explainable search in action</p>
+          <h2>Watch an AI solve Sudoku one decision at a time.</h2>
+          <p class="hero-description">
+            This interactive website models Sudoku as a constraint satisfaction problem. It generates a new valid puzzle, applies heuristic backtracking, and makes every placement, propagation, and backtrack visible.
+          </p>
+          <div class="concept-row" aria-label="Concepts used">
+            <span>Constraint satisfaction</span>
+            <span>MRV heuristic</span>
+            <span>Backtracking</span>
+            <span>Explainable AI</span>
+          </div>
+        </div>
+
+        <aside class="concept-card">
+          <div class="section-kicker">Project idea</div>
+          <h3>From problem formulation to solution</h3>
+          <p>Every empty cell has a domain of possible values. The solver narrows those domains, chooses the most constrained cell, and searches only when deduction is not enough.</p>
+          <div class="mapping-list">
+            <div><span>State</span><strong>Partially filled grid</strong></div>
+            <div><span>Constraints</span><strong>Rows · columns · boxes</strong></div>
+            <div><span>Action</span><strong>Place a legal value</strong></div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="workspace" aria-label="Sudoku solver workspace">
+        <div class="board-panel panel">
+          <div class="panel-heading">
+            <div>
+              <div class="section-kicker">Live puzzle</div>
+              <h3 id="puzzleTitle">Random puzzle</h3>
+            </div>
+            <div class="puzzle-meta">
+              <span id="difficultyBadge">Medium</span>
+              <span id="givensCount">0 givens</span>
+            </div>
+          </div>
+
+          <div id="sudokuGrid" class="sudoku-grid" role="grid" aria-label="Sudoku board"></div>
+
+          <div class="legend" aria-label="Board legend">
+            <span><i class="legend-swatch given"></i>Given</span>
+            <span><i class="legend-swatch generated"></i>AI placement</span>
+            <span><i class="legend-swatch focus"></i>Current focus</span>
+          </div>
+
+          <button id="refreshButton" class="primary-button" type="button">
+            <span aria-hidden="true">↻</span> Refresh puzzle
+          </button>
+        </div>
+
+        <div class="control-panel panel">
+          <div class="panel-heading compact">
+            <div>
+              <div class="section-kicker">Solver controls</div>
+              <h3>Explore the iterations</h3>
+            </div>
+            <span id="solverStatus" class="status-label">Ready</span>
+          </div>
+
+          <div class="iteration-readout">
+            <div>
+              <span class="muted-label">Current iteration</span>
+              <strong id="stepCounter">0 / 0</strong>
+            </div>
+            <div class="depth-readout">
+              <span class="muted-label">Search depth</span>
+              <strong id="depthCounter">0</strong>
+            </div>
+          </div>
+
+          <input id="stepSlider" class="step-slider" type="range" min="0" max="0" value="0" aria-label="Solver iteration" />
+
+          <div class="control-row">
+            <button id="previousButton" class="secondary-button" type="button" aria-label="Previous iteration">←</button>
+            <button id="autoplayButton" class="primary-button grow" type="button"><span aria-hidden="true">▶</span> Autoplay</button>
+            <button id="nextButton" class="secondary-button" type="button" aria-label="Next iteration">→</button>
+          </div>
+          <button id="resetButton" class="ghost-button" type="button">Return to puzzle start</button>
+
+          <div class="iteration-card">
+            <div class="iteration-topline">
+              <span id="actionBadge" class="action-badge">Puzzle ready</span>
+              <span id="cellBadge" class="cell-badge">—</span>
+            </div>
+            <p id="iterationMessage">Generate a puzzle, then move through the solver’s reasoning or start autoplay.</p>
+            <div id="candidateLine" class="candidate-line" hidden></div>
+          </div>
+
+          <div class="method-note">
+            <span class="method-icon" aria-hidden="true">✦</span>
+            <p><strong>Current method:</strong> MRV heuristic + constraint propagation + recursive backtracking.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="how-it-works panel">
+        <div class="section-kicker">How this demonstrates AI</div>
+        <div class="how-grid">
+          <article>
+            <span class="step-number">01</span>
+            <h3>Represent the problem</h3>
+            <p>The grid is the state space. Each empty cell stores a domain containing the values that do not violate its row, column, or box constraints.</p>
+          </article>
+          <article>
+            <span class="step-number">02</span>
+            <h3>Choose intelligently</h3>
+            <p>The Minimum Remaining Values heuristic selects the cell with the fewest legal options, reducing unnecessary search.</p>
+          </article>
+          <article>
+            <span class="step-number">03</span>
+            <h3>Explain the search</h3>
+            <p>Each iteration is recorded as a decision, deduction, contradiction, or backtrack so the algorithm can be inspected like an experiment.</p>
+          </article>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>Artificial Intelligence and Soft Computing</span>
+        <span>Interactive algorithmic implementation</span>
+      </footer>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
