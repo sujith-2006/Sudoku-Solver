@@ -16,7 +16,7 @@
         <div class="brand-lockup">
           <div class="brand-mark" aria-hidden="true">9×9</div>
           <div>
-            <p class="eyebrow">AISC project · CSE3121</p>
+            <p class="eyebrow">Interactive puzzle lab</p>
             <h1>Sudoku Solver Lab</h1>
           </div>
         </div>
@@ -25,10 +25,10 @@
 
       <section class="hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow accent">Explainable search in action</p>
-          <h2>Watch an AI solve Sudoku one decision at a time.</h2>
+          <p class="eyebrow accent">A better way to get unstuck</p>
+          <h2>See a Sudoku solve itself, one move at a time.</h2>
           <p class="hero-description">
-            This interactive website models Sudoku as a constraint satisfaction problem. It generates a new valid puzzle, applies heuristic backtracking, and makes every placement, propagation, and backtrack visible.
+            Generate a fresh puzzle, watch the solver think, and jump through its choices whenever you want. Every move is there to explore, from the first clue to the final square.
           </p>
           <div class="concept-row" aria-label="Concepts used">
             <span>Constraint satisfaction</span>
@@ -39,13 +39,13 @@
         </div>
 
         <aside class="concept-card">
-          <div class="section-kicker">Project idea</div>
-          <h3>From problem formulation to solution</h3>
-          <p>Every empty cell has a domain of possible values. The solver narrows those domains, chooses the most constrained cell, and searches only when deduction is not enough.</p>
+          <div class="section-kicker">What’s happening</div>
+          <h3>A puzzle, a plan, and a little patience</h3>
+          <p>Every empty square has a handful of possibilities. The solver trims those down, starts with the trickiest square, and only guesses when the clues stop talking.</p>
           <div class="mapping-list">
-            <div><span>State</span><strong>Partially filled grid</strong></div>
-            <div><span>Constraints</span><strong>Rows · columns · boxes</strong></div>
-            <div><span>Action</span><strong>Place a legal value</strong></div>
+            <div><span>Board</span><strong>Nine-by-nine grid</strong></div>
+            <div><span>Rules</span><strong>Rows · columns · boxes</strong></div>
+            <div><span>Move</span><strong>Try a legal number</strong></div>
           </div>
         </aside>
       </section>
@@ -54,8 +54,8 @@
         <div class="board-panel panel">
           <div class="panel-heading">
             <div>
-              <div class="section-kicker">Live puzzle</div>
-              <h3 id="puzzleTitle">Random puzzle</h3>
+              <div class="section-kicker">Your puzzle</div>
+              <h3 id="puzzleTitle">Fresh puzzle</h3>
             </div>
             <div class="puzzle-meta">
               <span id="difficultyBadge">Medium</span>
@@ -79,15 +79,15 @@
         <div class="control-panel panel">
           <div class="panel-heading compact">
             <div>
-              <div class="section-kicker">Solver controls</div>
-              <h3>Explore the iterations</h3>
+              <div class="section-kicker">Take the wheel</div>
+              <h3>Step through the solve</h3>
             </div>
             <span id="solverStatus" class="status-label">Ready</span>
           </div>
 
           <div class="iteration-readout">
             <div>
-              <span class="muted-label">Current iteration</span>
+              <span class="muted-label">Step</span>
               <strong id="stepCounter">0 / 0</strong>
             </div>
             <div class="depth-readout">
@@ -103,7 +103,7 @@
             <button id="autoplayButton" class="primary-button grow" type="button"><span aria-hidden="true">▶</span> Autoplay</button>
             <button id="nextButton" class="secondary-button" type="button" aria-label="Next iteration">→</button>
           </div>
-          <button id="resetButton" class="ghost-button" type="button">Return to puzzle start</button>
+          <button id="resetButton" class="ghost-button" type="button">Back to the beginning</button>
 
           <div class="iteration-card">
             <div class="iteration-topline">
@@ -116,35 +116,35 @@
 
           <div class="method-note">
             <span class="method-icon" aria-hidden="true">✦</span>
-            <p><strong>Current method:</strong> MRV heuristic + constraint propagation + recursive backtracking.</p>
+            <p><strong>Under the hood:</strong> MRV heuristic + constraint propagation + recursive backtracking.</p>
           </div>
         </div>
       </section>
 
       <section class="how-it-works panel">
-        <div class="section-kicker">How this demonstrates AI</div>
+        <div class="section-kicker">What the solver is doing</div>
         <div class="how-grid">
           <article>
             <span class="step-number">01</span>
-            <h3>Represent the problem</h3>
+            <h3>Start with the rules</h3>
             <p>The grid is the state space. Each empty cell stores a domain containing the values that do not violate its row, column, or box constraints.</p>
           </article>
           <article>
             <span class="step-number">02</span>
-            <h3>Choose intelligently</h3>
+            <h3>Pick the tightest spot</h3>
             <p>The Minimum Remaining Values heuristic selects the cell with the fewest legal options, reducing unnecessary search.</p>
           </article>
           <article>
             <span class="step-number">03</span>
-            <h3>Explain the search</h3>
+            <h3>Show the thinking</h3>
             <p>Each iteration is recorded as a decision, deduction, contradiction, or backtrack so the algorithm can be inspected like an experiment.</p>
           </article>
         </div>
       </section>
 
       <footer class="footer">
-        <span>Artificial Intelligence and Soft Computing</span>
-        <span>Interactive algorithmic implementation</span>
+        <span>Sudoku Solver Lab</span>
+        <span>Built for curious minds</span>
       </footer>
     </main>
 
